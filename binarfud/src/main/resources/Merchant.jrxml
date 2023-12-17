@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Employee" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="binarfud"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="553"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="433"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="IdMerchant" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT
+    m.id AS merchant_id,
+    m.merchant_name,
+    p.id AS product_id,
+    p.product_name,
+    COUNT(p.id) AS total_products_sold,
+    SUM(od.quantity) AS total_quantity_sold,
+    SUM(od.total_price) AS total_revenue,
+    SUM(COUNT(p.id)) OVER () AS overall_total_products_sold,
+    SUM(SUM(od.quantity)) OVER () AS overall_total_quantity_sold,
+    SUM(SUM(od.total_price)) OVER () AS overall_total_revenue
+FROM
+    merchant m
+JOIN
+    product p ON m.id = p.merchant_id
+JOIN
+    order_detail od ON p.id = od.product_id
+JOIN
+    orders o ON od.order_id = o.id
+WHERE
+    o.completed = true AND m.id = $P{IdMerchant}
+GROUP BY
+    m.id, m.merchant_name, p.id, p.product_name
+ORDER BY
+    total_revenue DESC;]]>
+	</queryString>
+	<field name="merchant_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="merchant_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="merchant_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="merchant"/>
+	</field>
+	<field name="merchant_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="merchant_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="merchant_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="merchant"/>
+	</field>
+	<field name="product_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="product_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="product_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product"/>
+	</field>
+	<field name="product_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="product_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="product_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="product"/>
+	</field>
+	<field name="total_products_sold" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="total_products_sold"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_products_sold"/>
+	</field>
+	<field name="total_quantity_sold" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total_quantity_sold"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_quantity_sold"/>
+	</field>
+	<field name="total_revenue" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total_revenue"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_revenue"/>
+	</field>
+	<field name="overall_total_products_sold" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="overall_total_products_sold"/>
+		<property name="com.jaspersoft.studio.field.label" value="overall_total_products_sold"/>
+	</field>
+	<field name="overall_total_quantity_sold" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="overall_total_quantity_sold"/>
+		<property name="com.jaspersoft.studio.field.label" value="overall_total_quantity_sold"/>
+	</field>
+	<field name="overall_total_revenue" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="overall_total_revenue"/>
+		<property name="com.jaspersoft.studio.field.label" value="overall_total_revenue"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="114" splitType="Stretch">
+			<staticText>
+				<reportElement key="" style="Title" x="78" y="0" width="402" height="62" isRemoveLineWhenBlank="true" uuid="1a652692-054a-40f3-ade5-68d8da36626d">
+					<property name="com.jaspersoft.studio.element.name" value="Invoice Customer"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[Reporting Penjualan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="84" width="100" height="19" uuid="1f5d226b-1c69-4a85-97b3-91b149f1a757">
+					<property name="com.jaspersoft.studio.element.name" value="username"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Merchant :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="85" width="130" height="18" uuid="a02ccd42-c877-4b66-b4c0-68e3a27bb681"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{merchant_name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="110" width="555" height="1" uuid="1a61a836-d137-48b1-ad67-6ff64600bf93"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="170" y="62" width="100" height="19" uuid="d0cf69e9-1e02-4e78-a07e-b5be7d73cd94">
+					<property name="com.jaspersoft.studio.element.name" value="username"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="63" width="100" height="18" uuid="3745585b-f89b-41ef-ba41-6820016d24ef"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{merchant_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="34" y="-20" width="44" height="20" uuid="67fcae81-f0eb-40ad-be50-06bc5bd26233"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="78" y="-20" width="154" height="20" uuid="3d22afb2-62af-4385-8865-eefcc7b013be"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama Produk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="-20" width="100" height="20" uuid="754337b3-8bab-4a5a-be6c-babcc791b78d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total Product Sold]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="-20" width="100" height="20" uuid="cec28118-e234-4562-a84e-1e64ccd4223e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total Qty Sold]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="-20" width="118" height="20" uuid="615c7b94-b08f-4b7a-9445-2ffa0e1cfc0b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total Pendapatan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="34" y="0" width="44" height="23" uuid="d392e298-0f5c-43df-8ead-70c9daa50b70"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{product_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="0" width="154" height="23" uuid="9e213ac7-d6c8-42e3-9a93-d218d3aa94f7"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{product_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="0" width="100" height="23" uuid="d36eceac-befa-4cd4-840d-2d8076ebe742"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{total_products_sold}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="0" width="100" height="23" uuid="eae2f4fd-9cf1-42a5-ae00-006321f4c113"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{total_quantity_sold}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="0" width="118" height="23" uuid="32f28cc1-1c7b-43d8-8231-baaff7f2ed12"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Rp. "+ $F{total_revenue}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="70" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fa45a887-615a-4d84-a2d7-8a2219671b3c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="320" y="10" width="112" height="20" uuid="3705f179-f9a6-4b29-b325-77a890b30dae"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Overall Total Qty Sold]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="320" y="30" width="112" height="23" uuid="6cb5ab1e-bb69-49fb-b0eb-785166781f10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{overall_total_quantity_sold}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="432" y="10" width="118" height="20" uuid="57662974-f5ea-4b1b-9207-54d7e2750da1"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Overall Total Pendapatan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="432" y="30" width="118" height="23" uuid="00b195da-fdd8-4eef-881c-3ccad02f1b1d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Rp. "+ $F{overall_total_revenue}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="190" y="10" width="130" height="20" uuid="31eb50bf-d18d-432e-8bd4-b138dcde68e4"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Overall Total Product Sold]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="30" width="130" height="23" uuid="0ec2b4d8-588f-4749-9fdc-41d82099be23"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{overall_total_products_sold}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="0193f9b3-1559-491a-8580-b6988863b6a1"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="d00b105e-494b-418b-8ac9-8b1b4824f4f0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="0616f3fe-0354-456f-8911-ec30ec51a5ae"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,177 @@
+[2023-11-08 17:01:01.001][INFO ][org.hibernate.validator.internal.util.Version][background-preinit][21]HV000001: Hibernate Validator 6.0.21.Final
+[2023-11-08 17:01:01.001][INFO ][org.springframework.boot.StartupInfoLogger][main][55]Starting Chapter4Application using Java 17.0.8 on DESKTOP-BCDMK2Q with PID 1628 (C:\Users\EdoEdiNiko\IdeaProjects\chapter4\chapter4\target\classes started by EdoEdiNiko in C:\Users\EdoEdiNiko\IdeaProjects\chapter4\chapter4)
+[2023-11-08 17:01:01.001][INFO ][org.springframework.boot.SpringApplication][main][631]No active profile set, falling back to 1 default profile: "default"
+[2023-11-08 17:01:04.004][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][main][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-11-08 17:01:04.004][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][main][201]Finished Spring Data repository scanning in 295 ms. Found 5 JPA repository interfaces.
+[2023-11-08 17:01:06.006][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][main][108]Tomcat initialized with port(s): 8080 (http)
+[2023-11-08 17:01:06.006][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2023-11-08 17:01:06.006][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Starting service [Tomcat]
+[2023-11-08 17:01:06.006][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Starting Servlet engine: [Apache Tomcat/9.0.80]
+[2023-11-08 17:01:06.006][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Initializing Spring embedded WebApplicationContext
+[2023-11-08 17:01:06.006][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][main][292]Root WebApplicationContext: initialization completed in 5459 ms
+[2023-11-08 17:01:07.007][INFO ][org.hibernate.jpa.internal.util.LogHelper][main][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-11-08 17:01:07.007][INFO ][org.hibernate.Version][main][44]HHH000412: Hibernate ORM core version 5.6.15.Final
+[2023-11-08 17:01:08.008][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][main][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2023-11-08 17:01:08.008][INFO ][com.zaxxer.hikari.HikariDataSource][main][110]HikariPool-1 - Starting...
+[2023-11-08 17:01:09.009][INFO ][com.zaxxer.hikari.HikariDataSource][main][123]HikariPool-1 - Start completed.
+[2023-11-08 17:01:09.009][INFO ][org.hibernate.dialect.Dialect][main][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+[2023-11-08 17:01:13.013][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][main][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-11-08 17:01:13.013][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][main][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-11-08 17:01:14.014][WARN ][org.springframework.context.support.AbstractApplicationContext][main][591]Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration': Unsatisfied dependency expressed through method 'setConfigurers' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swaggerWebMvcConfigurer' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'swaggerWebMvcConfigurer' parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexPageTransformer' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'indexPageTransformer' parameter 3; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+[2023-11-08 17:01:14.014][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][main][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-11-08 17:01:14.014][INFO ][com.zaxxer.hikari.HikariDataSource][main][350]HikariPool-1 - Shutdown initiated...
+[2023-11-08 17:01:14.014][INFO ][com.zaxxer.hikari.HikariDataSource][main][352]HikariPool-1 - Shutdown completed.
+[2023-11-08 17:01:14.014][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Stopping service [Tomcat]
+[2023-11-08 17:01:14.014][INFO ][org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener][main][136]
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2023-11-08 17:01:14.014][ERROR][org.springframework.boot.SpringApplication][main][821]Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration': Unsatisfied dependency expressed through method 'setConfigurers' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swaggerWebMvcConfigurer' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'swaggerWebMvcConfigurer' parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexPageTransformer' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'indexPageTransformer' parameter 3; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:824)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:777)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:921)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.aplikasi.chapter7.Chapter7Application.main(Chapter4Application.java:9)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swaggerWebMvcConfigurer' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'swaggerWebMvcConfigurer' parameter 1; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexPageTransformer' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'indexPageTransformer' parameter 3; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:536)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1609)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1573)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1462)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1349)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:816)
+	... 20 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexPageTransformer' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Unsatisfied dependency expressed through method 'indexPageTransformer' parameter 3; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:536)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 36 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'swaggerWelcome' defined in class path resource [org/springdoc/webmvc/ui/SwaggerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:633)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 50 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc]: Factory method 'swaggerWelcome' threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
+	... 64 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/http/HttpStatusCode
+	at org.springdoc.webmvc.ui.SwaggerConfig.swaggerWelcome(SwaggerConfig.java:83)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 65 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.http.HttpStatusCode
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	... 71 common frames omitted
+[2023-11-08 17:03:13.013][INFO ][org.hibernate.validator.internal.util.Version][background-preinit][21]HV000001: Hibernate Validator 6.0.21.Final
+[2023-11-08 17:03:13.013][INFO ][org.springframework.boot.StartupInfoLogger][main][55]Starting Chapter4Application using Java 17.0.8 on DESKTOP-BCDMK2Q with PID 16116 (C:\Users\EdoEdiNiko\IdeaProjects\chapter4\chapter4\target\classes started by EdoEdiNiko in C:\Users\EdoEdiNiko\IdeaProjects\chapter4\chapter4)
+[2023-11-08 17:03:13.013][INFO ][org.springframework.boot.SpringApplication][main][631]No active profile set, falling back to 1 default profile: "default"
+[2023-11-08 17:03:15.015][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][main][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-11-08 17:03:15.015][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][main][201]Finished Spring Data repository scanning in 245 ms. Found 5 JPA repository interfaces.
+[2023-11-08 17:03:17.017][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][main][108]Tomcat initialized with port(s): 8080 (http)
+[2023-11-08 17:03:17.017][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2023-11-08 17:03:17.017][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Starting service [Tomcat]
+[2023-11-08 17:03:17.017][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Starting Servlet engine: [Apache Tomcat/9.0.80]
+[2023-11-08 17:03:18.018][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Initializing Spring embedded WebApplicationContext
+[2023-11-08 17:03:18.018][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][main][292]Root WebApplicationContext: initialization completed in 4795 ms
+[2023-11-08 17:03:18.018][INFO ][org.hibernate.jpa.internal.util.LogHelper][main][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-11-08 17:03:18.018][INFO ][org.hibernate.Version][main][44]HHH000412: Hibernate ORM core version 5.6.15.Final
+[2023-11-08 17:03:19.019][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][main][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2023-11-08 17:03:19.019][INFO ][com.zaxxer.hikari.HikariDataSource][main][110]HikariPool-1 - Starting...
+[2023-11-08 17:03:20.020][INFO ][com.zaxxer.hikari.HikariDataSource][main][123]HikariPool-1 - Start completed.
+[2023-11-08 17:03:20.020][INFO ][org.hibernate.dialect.Dialect][main][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+[2023-11-08 17:03:22.022][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][main][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-11-08 17:03:22.022][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][main][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-11-08 17:03:24.024][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][main][223]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-11-08 17:03:25.025][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Starting ProtocolHandler ["http-nio-8080"]
+[2023-11-08 17:03:25.025][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][main][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2023-11-08 17:03:25.025][INFO ][org.springframework.boot.StartupInfoLogger][main][61]Started Chapter4Application in 13.31 seconds (JVM running for 16.044)
+[2023-11-08 17:03:38.038][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-11-08 17:03:38.038][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2023-11-08 17:03:38.038][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2023-11-08 17:11:18.018][INFO ][org.hibernate.validator.internal.util.Version][background-preinit][21]HV000001: Hibernate Validator 6.0.21.Final
+[2023-11-08 17:11:18.018][INFO ][org.springframework.boot.StartupInfoLogger][main][55]Starting Chapter4Application using Java 17.0.8 on DESKTOP-BCDMK2Q with PID 8304 (C:\Users\EdoEdiNiko\IdeaProjects\chapter4\chapter4\target\classes started by EdoEdiNiko in C:\Users\EdoEdiNiko\IdeaProjects\chapter4\chapter4)
+[2023-11-08 17:11:18.018][INFO ][org.springframework.boot.SpringApplication][main][631]No active profile set, falling back to 1 default profile: "default"
+[2023-11-08 17:11:20.020][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][main][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2023-11-08 17:11:21.021][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][main][201]Finished Spring Data repository scanning in 526 ms. Found 5 JPA repository interfaces.
+[2023-11-08 17:11:23.023][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][main][108]Tomcat initialized with port(s): 8080 (http)
+[2023-11-08 17:11:23.023][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2023-11-08 17:11:23.023][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Starting service [Tomcat]
+[2023-11-08 17:11:23.023][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Starting Servlet engine: [Apache Tomcat/9.0.80]
+[2023-11-08 17:11:24.024][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Initializing Spring embedded WebApplicationContext
+[2023-11-08 17:11:24.024][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][main][292]Root WebApplicationContext: initialization completed in 5412 ms
+[2023-11-08 17:11:24.024][INFO ][org.hibernate.jpa.internal.util.LogHelper][main][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2023-11-08 17:11:24.024][INFO ][org.hibernate.Version][main][44]HHH000412: Hibernate ORM core version 5.6.15.Final
+[2023-11-08 17:11:25.025][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][main][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2023-11-08 17:11:25.025][INFO ][com.zaxxer.hikari.HikariDataSource][main][110]HikariPool-1 - Starting...
+[2023-11-08 17:11:26.026][INFO ][com.zaxxer.hikari.HikariDataSource][main][123]HikariPool-1 - Start completed.
+[2023-11-08 17:11:26.026][INFO ][org.hibernate.dialect.Dialect][main][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+[2023-11-08 17:11:29.029][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][main][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2023-11-08 17:11:29.029][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][main][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2023-11-08 17:11:31.031][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][main][223]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2023-11-08 17:11:33.033][INFO ][org.apache.juli.logging.DirectJDKLog][main][173]Starting ProtocolHandler ["http-nio-8080"]
+[2023-11-08 17:11:33.033][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][main][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2023-11-08 17:11:33.033][INFO ][org.springframework.boot.StartupInfoLogger][main][61]Started Chapter4Application in 16.127 seconds (JVM running for 18.8)
+[2023-11-08 17:12:46.046][INFO ][org.apache.juli.logging.DirectJDKLog][http-nio-8080-exec-1][173]Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-11-08 17:12:46.046][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][525]Initializing Servlet 'dispatcherServlet'
+[2023-11-08 17:12:46.046][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][547]Completed initialization in 37 ms
+[2023-11-08 17:12:50.050][INFO ][org.springdoc.api.AbstractOpenApiResource][http-nio-8080-exec-8][368]Init duration for springdoc-openapi is: 1621 ms
+[2023-11-08 17:15:29.029][INFO ][com.aplikasi.chapter7.binarfud.service.impl.CustomerServiceImpl][http-nio-8080-exec-7][30]add User
+[2023-11-08 17:18:17.017][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-11-08 17:18:17.017][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2023-11-08 17:18:17.017][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
